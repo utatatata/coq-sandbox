@@ -1,0 +1,3 @@
+-R theories/ sandbox
+theories/peano.v
+theories/combinatory.v

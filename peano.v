@@ -8,6 +8,12 @@ Fixpoint add n m :=
   | S p => S (add p m)
   end.
 
+Fixpoint mul (n m : nat) :=
+  match n with
+  | Z => Z
+  | S p => add (mul p m) (S Z)
+  end.
+
 Lemma eq1 : forall n, add n Z = add Z n.
 Proof.
   intros.

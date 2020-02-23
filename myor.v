@@ -1,18 +1,18 @@
-Inductive myor (A B:Prop) : Prop :=
-  | myor_introl : A -> A \/ B
-  | myor_intror : B -> A \/ B
-where "A \/ B" := (myor A B) : type_scope.
+Inductive or (A B:Prop) : Prop :=
+  | or_introl : A -> A \/ B
+  | or_intror : B -> A \/ B
+where "A \/ B" := (or A B) : type_scope.
 
 
-Goal forall A B, (myor A B) -> (myor B A).
+Goal forall P Q, P \/ Q -> Q \/ P.
 Proof.
   intros.
   elim H.
   - intros.
-    apply myor_intror.
+    apply or_intror.
     trivial.
   - intros.
-    apply myor_introl.
+    apply or_introl.
     trivial.
 Qed.
 
